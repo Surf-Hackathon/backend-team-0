@@ -34,7 +34,7 @@ docker-build:
   needs: ["maven-build"]
   script:
     - docker build -t ${REGISTRY_HOST}/hackathon-backend-${TEAM}:${CI_COMMIT_TAG} .
-    - docker login -u ${REGISTRY_USERNAME} -p ${REGISTRY_PASSWORD} ${REGISTRY_HOST}
+    - docker login -u ${REGISTRY_USERNAME} -p ${REGISTRY_PASSWORD}
     - docker push ${REGISTRY_HOST}/hackathon-backend-${TEAM}:${CI_COMMIT_TAG}
     - docker logout ${REGISTRY_HOST}
   only:
